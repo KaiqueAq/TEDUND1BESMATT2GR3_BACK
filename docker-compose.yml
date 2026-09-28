@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:16-alpine
+    container_name: disponibilidade_db_local
+    environment:
+      POSTGRES_DB: disponibilidade_docente
+      POSTGRES_USER: ucsal_user
+      POSTGRES_PASSWORD: ucsal_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
